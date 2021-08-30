@@ -178,10 +178,6 @@ select {
     transform-style: preserve-3d;
 }
 
-.flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg);
-}
-
 #card-front,
 #card-back {
     position: absolute;

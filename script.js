@@ -29,3 +29,14 @@ window.onload = function() {
         yearField.appendChild(option);
     }
 };
+
+
+function myFunction() {
+    const trial = document.getElementsByClassName("flip-card-inner")[0];
+    trial.style.transform = "rotateY(180deg)";
+}
+
+function myblurFunction() {
+    const trial = document.getElementsByClassName("flip-card-inner")[0];
+    trial.style.transform = "rotateY(360deg)";
+}
