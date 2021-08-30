@@ -12,26 +12,44 @@
 <body>
     <div class="page-container">
         <div class="content">
-            <div class="card">
-                <div class="card-header">
-                    <img src="images/chip.png" />
-                    <img src="images/visa.png" />
-                </div>
-                <div class="card-number" id="cnumber">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="card" id="card-front">
+                        <div class="card-header">
+                            <img src="images/chip.png" />
+                            <img src="images/visa.png" />
+                        </div>
+                        <div class="card-number" id="cnumber">
 
-                </div>
-                <div class="card-details">
-                    <div>
-                        <label class="card-detail-text">
-        Card Holder
-    </label>
-                        <div id="holderName"></div>
+                        </div>
+                        <div class="card-details">
+                            <div>
+                                <label class="card-detail-text">
+            Card Holder
+        </label>
+                                <div id="holderName"></div>
+                            </div>
+                            <div>
+                                <label class="card-detail-text">
+                                Expires
+                            </label>
+                                <div id="expiry"></div>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <label class="card-detail-text">
-                            Expires
-                        </label>
-                        <div id="expiry"></div>
+                    <div class="card card-back" id="card-back">
+                        <div class="black-bar">
+
+                        </div>
+                        <div class="cvv-bar">
+                            <label class="cvv-back">
+        CVV
+    </label>
+                            <input type="text" class="cvv-input-area">
+                        </div>
+                        <div class="card-type">
+                            <img src="images/visa.png" />
+                        </div>
                     </div>
                 </div>
             </div>
@@ -41,13 +59,13 @@
                         <label>
                     Card Number
                 </label>
-                        <input type="text">
+                        <input type="text" class="input-area">
                     </div>
                     <div>
                         <label>
                     Card Name
                 </label>
-                        <input type="text">
+                        <input type="text" class="input-area">
                     </div>
                     <div class="layer">
                         <div class="date">
@@ -63,7 +81,7 @@
                             <label>
                                 CVV
                             </label>
-                            <input type="text">
+                            <input type="text" class="input-area" id="cvv">
                         </div>
                     </div>
                     <button type="submit">Submit</button>
