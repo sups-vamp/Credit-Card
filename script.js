@@ -28,6 +28,11 @@ window.onload = function() {
         option.value = i;
         yearField.appendChild(option);
     }
+
+    const cardType = document.createElement("img");
+    cardType.setAttribute("class", "logo");
+    cardType.src = "images/visa.png";
+    document.getElementById("card-type-img").appendChild(cardType);
 };
 
 
@@ -39,4 +44,99 @@ function myFunction() {
 function myblurFunction() {
     const trial = document.getElementsByClassName("flip-card-inner")[0];
     trial.style.transform = "rotateY(360deg)";
+}
+
+function dispCardNumber(e) {
+
+    const ccNumString = e.target.value;
+    const cardFormat = format(ccNumString);
+    if (cardFormat) {
+        document.getElementById("cnumber").innerHTML = cardFormat;
+    } else {
+        document.getElementById("cnumber").innerHTML = "####  ####  ####  ####";
+    }
+
+    const cardType = document.createElement("img");
+    cardType.setAttribute("class", "logo");
+    const l = document.getElementById("card-type-img");
+    const getCardType = checkCardType(ccNumString);
+    if (getCardType === "VISA") {
+        cardType.src = "images/visa.png";
+    } else if (getCardType === "MASTERCARD") {
+        cardType.src = "images/mastercard.png";
+    } else if (getCardType === "AMEX") {
+        cardType.src = "images/amex.png";
+    } else if (getCardType === "MAESTRO") {
+        cardType.src = "images/maestrocard.png";
+    } else if (getCardType === "UNIONPAY") {
+        cardType.src = "images/unionpay.png";
+    } else if (getCardType === "JCB") {
+        cardType.src = "images/jcb.png";
+    } else if (getCardType === "DISCOVER") {
+        cardType.src = "images/discover.png";
+    } else if (getCardType === "DINERSCLUB") {
+        cardType.src = "images/dinersclub.png";
+    } else {
+        cardType.src = "images/visa.png";
+    }
+    if (l.getElementsByClassName('logo').length > 0) {
+        l.replaceChild(cardType, l.getElementsByClassName('logo')[0]);
+    } else {
+        l.appendChild(cardType);
+    }
+
+}
+
+function format(ccnum) {
+    var v = ccnum.replace(/\s+/g, '').replace(/[^0-9]/gi, '')
+    var matches = v.match(/\d{4,16}/g);
+    var match = matches && matches[0] || ''
+    var parts = []
+
+    for (i = 0, len = match.length; i < len; i += 4) {
+        parts.push(match.substring(i, i + 4))
+    }
+
+    if (parts.length) {
+        return parts.join(' ')
+    } else {
+        return ccnum
+    }
+}
+
+function checkCardType(cardNum) {
+
+    var payCardType = "";
+    var regexMap = [
+        { regEx: /^4[0-9]{5}/ig, cardType: "VISA" },
+        { regEx: /^5[1-5][0-9]{4}/ig, cardType: "MASTERCARD" },
+        { regEx: /^3[47][0-9]{3}/ig, cardType: "AMEX" },
+        { regEx: /^(5[06-8]\d{4}|6\d{5})/ig, cardType: "MAESTRO" },
+        { regEx: /^(6011|622(12[6-9]|1[3-9][0-9]|[2-8][0-9]{2}|9[0-1][0-9]|92[0-5]|64[4-9])|65)/ig, cardType: "DISCOVER" },
+        { regEx: /^3(?:0[0-5]|[68][0-9])[0-9]{11}$/ig, cardType: "DINERSCLUB" },
+        { regEx: /^35(2[89]|[3-8][0-9])/ig, cardType: "JCB" },
+        { regEx: /^(62[0-9]{14,17})$/ig, cardType: "UNIONPAY" }
+    ];
+
+    for (var j = 0; j < regexMap.length; j++) {
+        if (cardNum.match(regexMap[j].regEx)) {
+            payCardType = regexMap[j].cardType;
+            break;
+        }
+    }
+
+    if (cardNum.indexOf("50") === 0 || cardNum.indexOf("60") === 0 || cardNum.indexOf("65") === 0) {
+        var g = "508500-508999|606985-607984|608001-608500|652150-653149";
+        var i = g.split("|");
+        for (var d = 0; d < i.length; d++) {
+            var c = parseInt(i[d].split("-")[0], 10);
+            var f = parseInt(i[d].split("-")[1], 10);
+            if ((cardNum.substr(0, 6) >= c && cardNum.substr(0, 6) <= f) && cardNum.length >= 6) {
+                payCardType = "RUPAY";
+                break;
+            }
+        }
+    }
+    return payCardType;
+
 }

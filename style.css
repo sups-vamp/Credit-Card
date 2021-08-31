@@ -186,3 +186,7 @@ select {
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
 }
+
+img {
+    height: 100%;
+}

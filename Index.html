@@ -17,7 +17,7 @@
                     <div class="card" id="card-front">
                         <div class="card-header">
                             <img src="images/chip.png" />
-                            <img src="images/visa.png" />
+                            <div id="card-type-img"></div>
                         </div>
                         <div class="card-number" id="cnumber">
 
@@ -59,7 +59,7 @@
                         <label>
                     Card Number
                 </label>
-                        <input type="text" class="input-area">
+                        <input type="text" class="input-area" id="card-number-input" onkeyup="dispCardNumber(event)">
                     </div>
                     <div>
                         <label>
