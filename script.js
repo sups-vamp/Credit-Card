@@ -49,7 +49,11 @@ function myblurFunction() {
 
 function dispCardNumber(e) {
 
-    const ccNumString = e.target.value;
+    let ccNumString = e.target.value;
+    if (isNaN(ccNumString)) {
+        alert("Only numbers accepted.");
+        ccNumString = "";
+    }
     const cardFormat = format(ccNumString);
     if (cardFormat) {
         document.getElementById("cnumber").innerHTML = cardFormat;
