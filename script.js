@@ -23,7 +23,7 @@ window.onload = function() {
         option.value = i;
         monthField.appendChild(option);
     }
-    for (let i = 2010; i <= 2060; i++) {
+    for (let i = 2021; i <= 2060; i++) {
         const option = document.createElement("OPTION");
         option.innerHTML = i;
         option.value = i;
