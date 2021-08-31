@@ -1,6 +1,7 @@
 # Credit-Card
 
-![image](https://user-images.githubusercontent.com/41366010/131491957-4d7abb03-e026-4d0c-b374-d9cc70620d7d.png)
+![image](https://user-images.githubusercontent.com/41366010/131493496-4742ff11-a320-4a64-a5f3-21e4bb01d9b0.png)
+
 
 - This app is purely created in JavaScript<br>
 - This credit card app catches the type of card during the user input only; the logo changes according to the card type- AMEX, MAESTRO, MASTERCARD, VISA, UNIONPAY, DINERSCLUB, DISCOVER JCB.<br>
