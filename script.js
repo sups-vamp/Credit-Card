@@ -47,9 +47,17 @@ function myFunction() {
     trial.style.transform = "rotateY(180deg)";
 }
 
-function myblurFunction() {
-    const trial = document.getElementsByClassName("flip-card-inner")[0];
-    trial.style.transform = "rotateY(360deg)";
+function myblurFunction(e) {
+    let flip = false;
+    if (e.target.value.length > 4 || e.target.value.length < 2 || isNaN(e.target.value)) {
+        alert("Please enter a valid CVV");
+        document.getElementById("cvv-display").value = "";
+        flip = true;
+    }
+    if (!flip) {
+        const trial = document.getElementsByClassName("flip-card-inner")[0];
+        trial.style.transform = "rotateY(360deg)";
+    }
 }
 
 function dispCardNumber(e) {
@@ -123,13 +131,6 @@ function format(ccnum) {
     }
 }
 
-function checkLength(e) {
-    if (e.target.value.length < 16) {
-        alert("Enter a valid credit card number");
-        e.target.value = "";
-    }
-}
-
 function checkCardType(cardNum) {
 
     var payCardType = "";
@@ -168,15 +169,6 @@ function checkCardType(cardNum) {
 
 function dispCvv(e) {
     document.getElementById("cvv-display").value = e.target.value;
-    if (isNaN(e.target.value)) {
-        alert("Only numbers allowed");
-        document.getElementById("cvv-display").value = "";
-        e.target.value = "";
-    }
-    if (e.target.value.length > 4) {
-        alert("Please enter a valid CVV");
-        document.getElementById("cvv-display").value = "";
-    }
 }
 
 function dispName(e) {
