@@ -1,6 +1,7 @@
 # Credit-Card
 
-![image](https://user-images.githubusercontent.com/41366010/131493496-4742ff11-a320-4a64-a5f3-21e4bb01d9b0.png)
+![image](https://user-images.githubusercontent.com/41366010/131493673-197cf241-695c-40de-8546-505e57aa664b.png)
+
 
 
 - This app is purely created in JavaScript<br>
