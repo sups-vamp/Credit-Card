@@ -123,6 +123,13 @@ function format(ccnum) {
     }
 }
 
+function checkLength(e) {
+    if (e.target.value.length < 16) {
+        alert("Enter a valid credit card number");
+        e.target.value = "";
+    }
+}
+
 function checkCardType(cardNum) {
 
     var payCardType = "";

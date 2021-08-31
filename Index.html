@@ -63,13 +63,13 @@
                         <label>
                     Card Number
                 </label>
-                        <input type="text" class="input-area" id="card-number-input" onkeyup="dispCardNumber(event)">
+                        <input type="text" class="input-area" id="card-number-input" onkeyup="dispCardNumber(event)" onblur="checkLength(event)" required>
                     </div>
                     <div>
                         <label>
                     Card Name
                 </label>
-                        <input type="text" class="input-area" onkeyup="dispName(event)" onblur="caps(event)">
+                        <input type="text" class="input-area" onkeyup="dispName(event)" onblur="caps(event)" required>
                     </div>
                     <div class="layer">
                         <div class="date">
@@ -77,18 +77,18 @@
                                 Expiration Date
                             </label>
                             <div class="year-month">
-                                <select id="month-picker" onchange="dispMonth(event)"></select>
-                                <select id="year-picker" onchange="dispYear(event)"></select>
+                                <select id="month-picker" onchange="dispMonth(event)" required></select>
+                                <select id="year-picker" onchange="dispYear(event)" required></select>
                             </div>
                         </div>
                         <div class="cvv" id="cvv">
                             <label>
                                 CVV
                             </label>
-                            <input type="text" class="input-area" id="cvv" onfocus="myFunction()" onblur="myblurFunction()" onkeyup="dispCvv(event)">
+                            <input type="text" class="input-area" id="cvv" onfocus="myFunction()" onblur="myblurFunction()" onkeyup="dispCvv(event)" required>
                         </div>
                     </div>
-                    <button type=" submit ">Submit</button>
+                    <input type="submit" />
                 </form>
             </div>
         </div>
