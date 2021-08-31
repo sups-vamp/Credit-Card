@@ -95,6 +95,7 @@ select {
     height: 2rem;
     border: 1px solid rgb(224, 224, 224);
     margin: 5px 0;
+    text-align: right;
 }
 
 .card-header {

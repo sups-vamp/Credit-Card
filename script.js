@@ -138,5 +138,12 @@ function checkCardType(cardNum) {
         }
     }
     return payCardType;
+}
 
+function dispCvv(e) {
+    document.getElementById("cvv-display").value = e.target.value;
+    if (e.target.value.length > 4) {
+        alert("Please enter a valid CVV");
+        document.getElementById("cvv-display").value = "";
+    }
 }

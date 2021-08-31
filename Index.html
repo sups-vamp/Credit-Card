@@ -45,7 +45,7 @@
                             <label class="cvv-back">
         CVV
     </label>
-                            <input type="text" class="cvv-input-area">
+                            <input type="password" class="cvv-input-area" id="cvv-display">
                         </div>
                         <div class="card-type">
                             <img src="images/visa.png" />
@@ -81,7 +81,7 @@
                             <label>
                                 CVV
                             </label>
-                            <input type="text" class="input-area" id="cvv" onfocus="myFunction()" onblur="myblurFunction()">
+                            <input type="text" class="input-area" id="cvv" onfocus="myFunction()" onblur="myblurFunction()" onkeyup="dispCvv(event)">
                         </div>
                     </div>
                     <button type=" submit ">Submit</button>
