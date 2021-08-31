@@ -108,10 +108,10 @@ select {
     display: flex;
     width: 100%;
     color: white;
-    font-size: x-large;
+    font-size: xx-large;
     height: 50%;
     align-items: center;
-    justify-content: center;
+    justify-content: right;
     margin-top: 10px;
 }
 

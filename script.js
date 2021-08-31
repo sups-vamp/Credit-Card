@@ -147,3 +147,11 @@ function dispCvv(e) {
         document.getElementById("cvv-display").value = "";
     }
 }
+
+function dispName(e) {
+    if (e.target.value) {
+        document.getElementById("holderName").innerHTML = e.target.value;
+    } else {
+        document.getElementById("holderName").innerHTML = "FULL NAME";
+    }
+}
