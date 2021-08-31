@@ -57,6 +57,7 @@ function dispCardNumber(e) {
     if (isNaN(ccNumString)) {
         alert("Only numbers accepted.");
         ccNumString = "";
+        e.target.value = "";
     }
     const cardFormat = format(ccNumString);
     if (cardFormat) {
@@ -160,6 +161,11 @@ function checkCardType(cardNum) {
 
 function dispCvv(e) {
     document.getElementById("cvv-display").value = e.target.value;
+    if (isNaN(e.target.value)) {
+        alert("Only numbers allowed");
+        document.getElementById("cvv-display").value = "";
+        e.target.value = "";
+    }
     if (e.target.value.length > 4) {
         alert("Please enter a valid CVV");
         document.getElementById("cvv-display").value = "";
