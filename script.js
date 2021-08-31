@@ -49,9 +49,10 @@ function myFunction() {
 
 function myblurFunction(e) {
     let flip = false;
-    if (e.target.value.length > 4 || e.target.value.length < 2 || isNaN(e.target.value)) {
+    if (e.target.value.length > 4 || e.target.value.length < 3 || isNaN(e.target.value)) {
         alert("Please enter a valid CVV");
         document.getElementById("cvv-display").value = "";
+        e.target.value = "";
         flip = true;
     }
     if (!flip) {
