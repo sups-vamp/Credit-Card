@@ -1,7 +1,8 @@
 window.onload = function() {
     document.getElementById("cnumber").innerHTML = "####  ####  ####  ####";
     document.getElementById("holderName").innerHTML = "FULL NAME";
-    document.getElementById("expiry").innerHTML = "MM/YY";
+    document.getElementById("month").innerHTML = "MM";
+    document.getElementById("year").innerHTML = "YY";
     const monthField = document.getElementById("month-picker");
     const yearField = document.getElementById("year-picker");
     const option = document.createElement("OPTION");
@@ -150,8 +151,23 @@ function dispCvv(e) {
 
 function dispName(e) {
     if (e.target.value) {
-        document.getElementById("holderName").innerHTML = e.target.value;
+        document.getElementById("holderName").innerHTML = e.target.value.toUpperCase();
     } else {
         document.getElementById("holderName").innerHTML = "FULL NAME";
     }
+}
+
+function dispYear(e) {
+    document.getElementById("year").innerHTML = e.target.value.substr(2, 4);
+}
+
+function dispMonth(e) {
+    let m;
+    if (e.target.value <= 9) {
+        m = `0${e.target.value}`;
+    } else {
+        m = e.target.value;
+    }
+
+    document.getElementById("month").innerHTML = m;
 }
