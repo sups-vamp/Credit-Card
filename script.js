@@ -34,6 +34,11 @@ window.onload = function() {
     cardType.setAttribute("class", "logo");
     cardType.src = "images/visa.png";
     document.getElementById("card-type-img").appendChild(cardType);
+
+    const cardTypeBack = document.createElement("img");
+    cardTypeBack.setAttribute("class", "logo-back");
+    cardTypeBack.src = "images/visa.png";
+    document.getElementById("card-type-img-back").appendChild(cardTypeBack);
 };
 
 
@@ -48,7 +53,6 @@ function myblurFunction() {
 }
 
 function dispCardNumber(e) {
-
     let ccNumString = e.target.value;
     if (isNaN(ccNumString)) {
         alert("Only numbers accepted.");
@@ -63,7 +67,10 @@ function dispCardNumber(e) {
 
     const cardType = document.createElement("img");
     cardType.setAttribute("class", "logo");
+    const cardTypeBack = document.createElement("img");
+    cardTypeBack.setAttribute("class", "logo-back");
     const l = document.getElementById("card-type-img");
+    const b = document.getElementById("card-type-img-back");
     const getCardType = checkCardType(ccNumString);
     if (getCardType === "VISA") {
         cardType.src = "images/visa.png";
@@ -84,12 +91,18 @@ function dispCardNumber(e) {
     } else {
         cardType.src = "images/visa.png";
     }
+    cardTypeBack.src = cardType.src;
     if (l.getElementsByClassName('logo').length > 0) {
         l.replaceChild(cardType, l.getElementsByClassName('logo')[0]);
     } else {
         l.appendChild(cardType);
     }
 
+    if (b.getElementsByClassName('logo-back').length > 0) {
+        b.replaceChild(cardTypeBack, b.getElementsByClassName('logo-back')[0]);
+    } else {
+        b.appendChild(cardTypeBack);
+    }
 }
 
 function format(ccnum) {
